@@ -13,6 +13,17 @@ Most GitHub MCP servers expose 25+ individual tools — one per API operation. T
 
 No need for a dedicated tool per operation. The `gh` CLI already covers repos, issues, PRs, workflows, releases, and more. This just gives MCP clients a way to execute those commands directly.
 
+## Why not just use `gh` through a shell tool?
+
+You can — it works. This server just cleans things up:
+
+- Parses `gh` output into structured JSON when possible, instead of raw terminal text
+- Handles timeouts so commands don't hang forever
+- Includes a `suggest_gh_commands` tool for when you're unsure about syntax
+- Shows up as a dedicated "github" capability instead of generic shell access
+
+Same `gh` CLI underneath, just a smoother wrapper for MCP clients to work with.
+
 ## Tools
 
 - `call_gh` — Execute any `gh` CLI command and get structured output
