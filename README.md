@@ -1,4 +1,4 @@
-# gh-cli-mcp-server
+# Github CLI MCP Server
 
 MCP server that wraps the GitHub CLI (`gh`) into two generic tools — similar to how `aws-api-mcp-server` wraps the AWS CLI.
 
