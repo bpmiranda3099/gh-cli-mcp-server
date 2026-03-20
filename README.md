@@ -1,5 +1,8 @@
 # Github CLI MCP Server
 
+[![PyPI](https://img.shields.io/pypi/v/gh-cli-mcp-server)](https://pypi.org/project/gh-cli-mcp-server)
+[![License](https://img.shields.io/pypi/l/gh-cli-mcp-server)](https://github.com/bpmiranda3099/gh-cli-mcp-server/blob/main/LICENSE)
+
 MCP server that wraps the GitHub CLI (`gh`) into two generic tools — similar to how `aws-api-mcp-server` wraps the AWS CLI.
 
 ## Why?
