@@ -43,9 +43,15 @@ pip install gh-cli-mcp-server
 
 ## Examples
 
-```
-call_gh("gh repo list --limit 5")
-call_gh("gh issue list --repo owner/repo --state open")
-call_gh("gh pr create --title 'Fix' --body 'Details' --base main")
-call_gh("gh api /repos/owner/repo")
-```
+Just ask your MCP client naturally — it'll use `call_gh` under the hood:
+
+| You say | What runs |
+|---|---|
+| "List my repos" | `gh repo list --limit 30` |
+| "Show open issues on my project" | `gh issue list --repo owner/repo --state open` |
+| "Create a PR from this branch to main" | `gh pr create --title '...' --body '...' --base main` |
+| "What workflows does this repo have?" | `gh workflow list --repo owner/repo` |
+| "Show me the last 5 CI runs" | `gh run list --repo owner/repo --limit 5` |
+| "Who am I logged in as?" | `gh auth status` |
+
+If the client isn't sure which command to use, it can call `suggest_gh_commands` with your prompt to get suggestions first.
