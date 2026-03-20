@@ -2,6 +2,7 @@
 
 import asyncio
 import json
+import shlex
 import shutil
 from mcp.server.fastmcp import FastMCP
 
@@ -20,9 +21,25 @@ async def _run_gh(command: str, timeout: int = 60) -> dict:
     if not command.startswith("gh "):
         command = f"gh {command}"
 
+    # Split into args and validate the binary is 'gh'
     try:
-        proc = await asyncio.create_subprocess_shell(
-            command,
+        args = shlex.split(command)
+    except ValueError as e:
+        return {"error": f"Invalid command syntax: {e}"}
+
+    if not args or args[0] != "gh":
+        return {"error": "Command must start with 'gh'"}
+
+    # Block shell operators that could sneak through
+    dangerous = {";", "&&", "||", "|", "`", "$(", "${", ">", "<", ">>"}
+    for arg in args:
+        for d in dangerous:
+            if d in arg:
+                return {"error": f"Blocked: shell operator '{d}' not allowed"}
+
+    try:
+        proc = await asyncio.create_subprocess_exec(
+            *args,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )

@@ -45,7 +45,7 @@ async def test_run_gh_success():
     mock_proc.communicate.return_value = (b'{"login":"testuser"}', b"")
 
     with patch("gh_cli_mcp_server.server._gh_available", return_value=True), \
-         patch("asyncio.create_subprocess_shell", return_value=mock_proc):
+         patch("asyncio.create_subprocess_exec", return_value=mock_proc):
         result = await _run_gh("gh api /user")
         assert result["exit_code"] == 0
         assert result["output"] == {"login": "testuser"}
@@ -59,7 +59,7 @@ async def test_run_gh_plain_text_output():
     mock_proc.communicate.return_value = (b"some plain text", b"")
 
     with patch("gh_cli_mcp_server.server._gh_available", return_value=True), \
-         patch("asyncio.create_subprocess_shell", return_value=mock_proc):
+         patch("asyncio.create_subprocess_exec", return_value=mock_proc):
         result = await _run_gh("gh repo list")
         assert result["output"] == "some plain text"
 
@@ -72,7 +72,7 @@ async def test_run_gh_command_failure():
     mock_proc.communicate.return_value = (b"", b"not found")
 
     with patch("gh_cli_mcp_server.server._gh_available", return_value=True), \
-         patch("asyncio.create_subprocess_shell", return_value=mock_proc):
+         patch("asyncio.create_subprocess_exec", return_value=mock_proc):
         result = await _run_gh("gh repo view nonexistent")
         assert result["exit_code"] == 1
         assert "not found" in result["error"]
@@ -100,3 +100,30 @@ def test_gh_available():
         assert _gh_available() is True
     with patch("shutil.which", return_value=None):
         assert _gh_available() is False
+
+
+@pytest.mark.asyncio
+async def test_run_gh_blocks_shell_injection():
+    """Shell operators are blocked."""
+    with patch("gh_cli_mcp_server.server._gh_available", return_value=True):
+        result = await _run_gh("gh repo list; rm -rf /")
+        assert "error" in result
+        assert "shell operator" in result["error"]
+
+
+@pytest.mark.asyncio
+async def test_run_gh_blocks_pipe():
+    """Pipe operator is blocked."""
+    with patch("gh_cli_mcp_server.server._gh_available", return_value=True):
+        result = await _run_gh("gh repo list | cat")
+        assert "error" in result
+        assert "shell operator" in result["error"]
+
+
+@pytest.mark.asyncio
+async def test_run_gh_blocks_command_substitution():
+    """Command substitution is blocked."""
+    with patch("gh_cli_mcp_server.server._gh_available", return_value=True):
+        result = await _run_gh("gh repo list $(whoami)")
+        assert "error" in result
+        assert "shell operator" in result["error"]
