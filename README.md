@@ -32,6 +32,7 @@ Same `gh` CLI underneath, just a smoother wrapper for MCP clients to work with.
 ## Prerequisites
 
 - [GitHub CLI](https://cli.github.com/) installed and authenticated (`gh auth login`)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (recommended, for running with `uvx`)
 
 ## Installation
 
