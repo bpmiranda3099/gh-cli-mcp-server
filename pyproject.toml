@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gh-cli-mcp-server"
+version = "0.1.0"
+description = "MCP server that wraps the GitHub CLI (gh) into a single generic tool"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "bpmiranda3099" }]
+keywords = ["mcp", "github", "gh", "cli"]
+dependencies = [
+    "mcp[cli]>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gh_cli_mcp_server"]
+
+[project.scripts]
+gh-cli-mcp-server = "gh_cli_mcp_server.server:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
