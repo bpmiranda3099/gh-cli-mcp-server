@@ -39,7 +39,7 @@ Same `gh` CLI underneath, just a smoother wrapper for MCP clients to work with.
 pip install gh-cli-mcp-server
 ```
 
-## Usage with Kiro / MCP clients
+## Usage with MCP clients
 
 ```json
 {
