@@ -1,0 +1,5 @@
+[
+  "gh ssh-key list",
+  "gh ssh-key add KEY_FILE --title 'My Key'",
+  "gh ssh-key delete KEY_ID"
+]

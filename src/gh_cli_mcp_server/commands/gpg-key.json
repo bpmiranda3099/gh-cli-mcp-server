@@ -1,0 +1,5 @@
+[
+  "gh gpg-key list",
+  "gh gpg-key add KEY_FILE",
+  "gh gpg-key delete KEY_ID"
+]

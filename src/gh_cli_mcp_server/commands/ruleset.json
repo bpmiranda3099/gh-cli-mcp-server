@@ -1,0 +1,6 @@
+[
+  "gh ruleset list --repo owner/repo",
+  "gh ruleset list --org ORG",
+  "gh ruleset view RULESET_ID --repo owner/repo",
+  "gh ruleset check --branch main --repo owner/repo"
+]

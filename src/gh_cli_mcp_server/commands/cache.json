@@ -1,0 +1,6 @@
+[
+  "gh cache list --repo owner/repo",
+  "gh cache list --repo owner/repo --json id,key,size",
+  "gh cache delete CACHE_ID --repo owner/repo",
+  "gh cache delete --all --repo owner/repo"
+]

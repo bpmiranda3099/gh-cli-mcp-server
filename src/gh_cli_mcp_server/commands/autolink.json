@@ -1,0 +1,6 @@
+[
+  "gh repo autolink list --repo owner/repo",
+  "gh repo autolink create PREFIX URL_TEMPLATE --repo owner/repo",
+  "gh repo autolink view AUTOLINK_ID --repo owner/repo",
+  "gh repo autolink delete AUTOLINK_ID --repo owner/repo --yes"
+]

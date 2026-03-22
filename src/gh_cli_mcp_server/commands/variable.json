@@ -1,0 +1,8 @@
+[
+  "gh variable list --repo owner/repo",
+  "gh variable get VAR_NAME --repo owner/repo",
+  "gh variable set VAR_NAME --repo owner/repo --body 'value'",
+  "gh variable delete VAR_NAME --repo owner/repo",
+  "gh variable list --org ORG",
+  "gh variable set VAR_NAME --org ORG --visibility all --body 'value'"
+]

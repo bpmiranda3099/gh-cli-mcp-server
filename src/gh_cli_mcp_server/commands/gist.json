@@ -1,0 +1,13 @@
+[
+  "gh gist list",
+  "gh gist list --public",
+  "gh gist create file.txt --public --desc 'Description'",
+  "gh gist create file1.txt file2.txt",
+  "gh gist view GIST_ID",
+  "gh gist view GIST_ID --raw",
+  "gh gist edit GIST_ID",
+  "gh gist edit GIST_ID --add newfile.txt",
+  "gh gist clone GIST_ID",
+  "gh gist delete GIST_ID",
+  "gh gist rename GIST_ID oldname.txt newname.txt"
+]

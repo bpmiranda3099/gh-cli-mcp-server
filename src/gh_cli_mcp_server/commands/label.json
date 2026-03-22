@@ -1,0 +1,7 @@
+[
+  "gh label list --repo owner/repo",
+  "gh label create NAME --repo owner/repo --color '#FF0000' --description 'Desc'",
+  "gh label edit NAME --repo owner/repo --name 'New Name' --color '#00FF00'",
+  "gh label delete NAME --repo owner/repo --yes",
+  "gh label clone SOURCE_REPO --repo owner/repo"
+]

@@ -1,0 +1,16 @@
+[
+  "gh release list --repo owner/repo",
+  "gh release list --repo owner/repo --json tagName,name,publishedAt",
+  "gh release view TAG --repo owner/repo",
+  "gh release create TAG --title 'Title' --notes 'Notes'",
+  "gh release create TAG --title 'Title' --generate-notes",
+  "gh release create TAG --title 'Title' --draft",
+  "gh release edit TAG --repo owner/repo --title 'New title'",
+  "gh release delete TAG --repo owner/repo --yes",
+  "gh release delete-asset TAG --repo owner/repo --pattern 'asset-name'",
+  "gh release download TAG --repo owner/repo",
+  "gh release download TAG --repo owner/repo --pattern '*.tar.gz'",
+  "gh release upload TAG file.zip --repo owner/repo",
+  "gh release verify TAG --repo owner/repo",
+  "gh release verify-asset TAG ./dist/asset.zip --repo owner/repo"
+]

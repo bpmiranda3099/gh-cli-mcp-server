@@ -1,0 +1,6 @@
+[
+  "gh browse --repo owner/repo",
+  "gh browse NUMBER --repo owner/repo",
+  "gh browse --settings --repo owner/repo",
+  "gh browse --projects --repo owner/repo"
+]

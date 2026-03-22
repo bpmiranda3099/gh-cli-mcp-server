@@ -1,0 +1,5 @@
+[
+  "gh attestation verify ARTIFACT --owner OWNER",
+  "gh attestation download ARTIFACT --owner OWNER",
+  "gh attestation trusted-root"
+]

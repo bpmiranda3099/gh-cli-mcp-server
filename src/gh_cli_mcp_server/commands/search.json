@@ -1,0 +1,12 @@
+[
+  "gh search repos QUERY --limit 10",
+  "gh search repos QUERY --language python --sort stars",
+  "gh search issues QUERY --limit 10",
+  "gh search issues QUERY --repo owner/repo --state open",
+  "gh search prs QUERY --limit 10",
+  "gh search prs QUERY --state open --review approved",
+  "gh search commits QUERY --limit 10",
+  "gh search commits QUERY --repo owner/repo",
+  "gh search code QUERY --limit 10",
+  "gh search code QUERY --repo owner/repo --filename '*.py'"
+]

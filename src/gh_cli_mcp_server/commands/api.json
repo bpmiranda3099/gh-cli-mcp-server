@@ -1,0 +1,7 @@
+[
+  "gh api /repos/owner/repo",
+  "gh api /user",
+  "gh api /repos/owner/repo/issues --method POST -f title='Title' -f body='Body'",
+  "gh api graphql -f query='{ viewer { login } }'",
+  "gh api /repos/owner/repo/actions/runs --paginate --jq '.workflow_runs[].name'"
+]

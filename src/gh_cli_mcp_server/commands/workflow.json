@@ -1,0 +1,8 @@
+[
+  "gh workflow list --repo owner/repo",
+  "gh workflow view WORKFLOW_ID --repo owner/repo",
+  "gh workflow run WORKFLOW_FILE --repo owner/repo",
+  "gh workflow run WORKFLOW_FILE --repo owner/repo -f param=value",
+  "gh workflow enable WORKFLOW_ID --repo owner/repo",
+  "gh workflow disable WORKFLOW_ID --repo owner/repo"
+]

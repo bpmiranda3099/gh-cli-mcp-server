@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "gh-cli-mcp-server"
-version = "0.2.0"
+version = "0.3.0"
 description = "MCP server that wraps the GitHub CLI (gh) into a single generic tool"
 readme = "README.md"
 license = "MIT"

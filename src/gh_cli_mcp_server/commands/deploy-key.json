@@ -1,0 +1,5 @@
+[
+  "gh repo deploy-key list --repo owner/repo",
+  "gh repo deploy-key add KEY_FILE --repo owner/repo --title 'Deploy Key'",
+  "gh repo deploy-key delete KEY_ID --repo owner/repo"
+]

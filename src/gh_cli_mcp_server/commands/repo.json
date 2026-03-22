@@ -1,0 +1,18 @@
+[
+  "gh repo list [owner] --limit 30",
+  "gh repo list [owner] --json name,description,url --limit 50",
+  "gh repo view owner/repo",
+  "gh repo view owner/repo --json name,description,stargazerCount",
+  "gh repo create name --public",
+  "gh repo create name --private --clone",
+  "gh repo clone owner/repo",
+  "gh repo fork owner/repo --clone",
+  "gh repo edit owner/repo --description 'New description'",
+  "gh repo edit owner/repo --visibility public",
+  "gh repo rename new-name",
+  "gh repo delete owner/repo --yes",
+  "gh repo archive owner/repo",
+  "gh repo unarchive owner/repo",
+  "gh repo sync owner/repo",
+  "gh repo set-default owner/repo"
+]

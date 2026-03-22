@@ -1,0 +1,13 @@
+[
+  "gh run list --repo owner/repo --limit 10",
+  "gh run list --repo owner/repo --workflow WORKFLOW_NAME --json databaseId,status,conclusion",
+  "gh run view RUN_ID --repo owner/repo",
+  "gh run view RUN_ID --repo owner/repo --log",
+  "gh run watch RUN_ID --repo owner/repo",
+  "gh run rerun RUN_ID --repo owner/repo",
+  "gh run rerun RUN_ID --repo owner/repo --failed",
+  "gh run cancel RUN_ID --repo owner/repo",
+  "gh run delete RUN_ID --repo owner/repo",
+  "gh run download RUN_ID --repo owner/repo",
+  "gh run download RUN_ID --repo owner/repo --name artifact-name"
+]

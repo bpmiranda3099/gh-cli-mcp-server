@@ -1,0 +1,18 @@
+[
+  "gh codespace list",
+  "gh codespace create --repo owner/repo",
+  "gh codespace create --repo owner/repo --machine basicLinux32gb",
+  "gh codespace view -c CODESPACE_NAME",
+  "gh codespace edit -c CODESPACE_NAME --display-name 'My Codespace'",
+  "gh codespace ssh -c CODESPACE_NAME",
+  "gh codespace code -c CODESPACE_NAME",
+  "gh codespace jupyter -c CODESPACE_NAME",
+  "gh codespace cp local-file.txt remote:CODESPACE_NAME:/path/",
+  "gh codespace ports -c CODESPACE_NAME",
+  "gh codespace ports forward 8080:8080 -c CODESPACE_NAME",
+  "gh codespace ports visibility 80:public -c CODESPACE_NAME",
+  "gh codespace logs -c CODESPACE_NAME",
+  "gh codespace rebuild -c CODESPACE_NAME",
+  "gh codespace stop -c CODESPACE_NAME",
+  "gh codespace delete -c CODESPACE_NAME"
+]

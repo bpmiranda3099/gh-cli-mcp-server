@@ -1,0 +1,22 @@
+[
+  "gh issue list --repo owner/repo --state open",
+  "gh issue list --repo owner/repo --label bug --assignee @me",
+  "gh issue list --repo owner/repo --json number,title,state --limit 50",
+  "gh issue create --repo owner/repo --title 'Title' --body 'Body'",
+  "gh issue create --repo owner/repo --title 'Bug' --label bug --assignee @me",
+  "gh issue view NUMBER --repo owner/repo",
+  "gh issue view NUMBER --repo owner/repo --json title,body,comments",
+  "gh issue comment NUMBER --repo owner/repo --body 'Comment'",
+  "gh issue edit NUMBER --repo owner/repo --title 'New title'",
+  "gh issue edit NUMBER --repo owner/repo --add-label enhancement",
+  "gh issue close NUMBER --repo owner/repo",
+  "gh issue reopen NUMBER --repo owner/repo",
+  "gh issue delete NUMBER --repo owner/repo --yes",
+  "gh issue pin NUMBER --repo owner/repo",
+  "gh issue unpin NUMBER --repo owner/repo",
+  "gh issue lock NUMBER --repo owner/repo",
+  "gh issue unlock NUMBER --repo owner/repo",
+  "gh issue transfer NUMBER --repo owner/repo DEST_REPO",
+  "gh issue develop NUMBER --repo owner/repo --base main",
+  "gh issue status --repo owner/repo"
+]

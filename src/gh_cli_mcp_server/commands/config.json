@@ -1,0 +1,7 @@
+[
+  "gh config list",
+  "gh config get editor",
+  "gh config set editor vim",
+  "gh config set git_protocol ssh",
+  "gh config clear-cache"
+]

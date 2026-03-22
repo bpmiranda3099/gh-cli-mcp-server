@@ -4,6 +4,7 @@ import asyncio
 import json
 import shlex
 import shutil
+from pathlib import Path
 from mcp.server.fastmcp import FastMCP
 
 mcp = FastMCP("gh-cli-mcp-server")
@@ -91,6 +92,8 @@ async def call_gh(cli_command: str, timeout: int = 60) -> str:
     return json.dumps(result, indent=2, default=str)
 
 
+
+
 @mcp.tool()
 async def suggest_gh_commands(query: str) -> str:
     """Suggest gh CLI commands based on a natural language description.
@@ -100,55 +103,10 @@ async def suggest_gh_commands(query: str) -> str:
     Args:
         query: Natural language description of what you want to do.
     """
-    suggestions = {
-        "repos": [
-            "gh repo list [owner] --limit 30",
-            "gh repo view owner/repo",
-            "gh repo create name --public/--private",
-            "gh repo clone owner/repo",
-        ],
-        "issues": [
-            "gh issue list --repo owner/repo --state open",
-            "gh issue create --repo owner/repo --title 'Title' --body 'Body'",
-            "gh issue view NUMBER --repo owner/repo",
-            "gh issue close NUMBER --repo owner/repo",
-            "gh issue comment NUMBER --repo owner/repo --body 'Comment'",
-        ],
-        "prs": [
-            "gh pr list --repo owner/repo --state open",
-            "gh pr create --title 'Title' --body 'Body' --base main",
-            "gh pr view NUMBER --repo owner/repo",
-            "gh pr merge NUMBER --repo owner/repo --squash",
-            "gh pr checkout NUMBER",
-            "gh pr diff NUMBER --repo owner/repo",
-        ],
-        "workflows": [
-            "gh workflow list --repo owner/repo",
-            "gh run list --repo owner/repo --limit 10",
-            "gh run view RUN_ID --repo owner/repo",
-            "gh run watch RUN_ID --repo owner/repo",
-        ],
-        "releases": [
-            "gh release list --repo owner/repo",
-            "gh release create TAG --title 'Title' --notes 'Notes'",
-            "gh release view TAG --repo owner/repo",
-        ],
-        "search": [
-            "gh search repos QUERY --limit 10",
-            "gh search issues QUERY --limit 10",
-            "gh search prs QUERY --limit 10",
-            "gh search code QUERY --limit 10",
-        ],
-        "api": [
-            "gh api /repos/owner/repo",
-            "gh api /user",
-            "gh api graphql -f query='{ viewer { login } }'",
-        ],
-        "auth": [
-            "gh auth status",
-            "gh auth login",
-        ],
-    }
+    commands_dir = Path(__file__).parent / "commands"
+    suggestions: dict[str, list[str]] = {}
+    for f in sorted(commands_dir.glob("*.json")):
+        suggestions[f.stem] = json.loads(f.read_text())
 
     q = query.lower()
     matched = []
@@ -157,10 +115,11 @@ async def suggest_gh_commands(query: str) -> str:
             matched.extend(cmds)
 
     if not matched:
-        # Return all categories as guidance
         matched = [f"# {cat}\n" + "\n".join(cmds) for cat, cmds in suggestions.items()]
 
     return json.dumps({"query": query, "suggestions": matched}, indent=2)
+
+
 
 
 def main():

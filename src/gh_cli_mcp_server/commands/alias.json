@@ -1,0 +1,6 @@
+[
+  "gh alias list",
+  "gh alias set co 'pr checkout'",
+  "gh alias delete co",
+  "gh alias import aliases.yml"
+]

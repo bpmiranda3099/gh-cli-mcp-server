@@ -1,0 +1,10 @@
+[
+  "gh extension list",
+  "gh extension install owner/gh-extension",
+  "gh extension upgrade --all",
+  "gh extension remove extension-name",
+  "gh extension search QUERY",
+  "gh extension create extension-name",
+  "gh extension browse",
+  "gh extension exec extension-name"
+]

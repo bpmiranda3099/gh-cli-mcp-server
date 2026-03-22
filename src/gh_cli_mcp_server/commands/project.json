@@ -1,0 +1,21 @@
+[
+  "gh project list --owner OWNER",
+  "gh project view NUMBER --owner OWNER",
+  "gh project create --owner OWNER --title 'Project Title'",
+  "gh project edit NUMBER --owner OWNER --title 'New Title'",
+  "gh project close NUMBER --owner OWNER",
+  "gh project copy NUMBER --source-owner OWNER --target-owner OWNER --title 'Copy'",
+  "gh project delete NUMBER --owner OWNER",
+  "gh project link NUMBER --owner OWNER --repo owner/repo",
+  "gh project unlink NUMBER --owner OWNER --repo owner/repo",
+  "gh project mark-template NUMBER --owner OWNER",
+  "gh project field-list NUMBER --owner OWNER",
+  "gh project field-create NUMBER --owner OWNER --name 'Field' --data-type TEXT",
+  "gh project field-delete FIELD_ID --owner OWNER",
+  "gh project item-list NUMBER --owner OWNER",
+  "gh project item-add NUMBER --owner OWNER --url ISSUE_OR_PR_URL",
+  "gh project item-create NUMBER --owner OWNER --title 'Draft issue'",
+  "gh project item-edit ITEM_ID --project-id PROJECT_ID --field-id FIELD_ID --text 'Value'",
+  "gh project item-archive NUMBER --owner OWNER --id ITEM_ID",
+  "gh project item-delete NUMBER --owner OWNER --id ITEM_ID"
+]
